@@ -1,0 +1,145 @@
+<head>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!-- JQuery  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <style>
+        @-webkit-keyframes PoliceAnimation {
+            0%{background-position:66% 0%}
+            50%{background-position:35% 100%}
+            100%{background-position:66% 0%}
+        }
+        @-moz-keyframes PoliceAnimation {
+            0%{background-position:66% 0%}
+            50%{background-position:35% 100%}
+            100%{background-position:66% 0%}
+        }
+        @keyframes PoliceAnimation {
+            0%{background-position:66% 0%}
+            50%{background-position:35% 100%}
+            100%{background-position:66% 0%}
+        }
+        .police { 
+            background: linear-gradient(280deg, #ff0000, #0000ff);
+            background-size: 400% 400%;
+
+            -webkit-animation: PoliceAnimation 1s ease infinite;
+            -moz-animation: PoliceAnimation 1s ease infinite;
+            animation: PoliceAnimation 1s ease infinite;
+
+
+        }
+        .rgb-slider {
+            height: 5em;
+        }
+        input[type=range] {
+            -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+            width: 100%; /* Specific width is required for Firefox. */
+            background: transparent; /* Otherwise white in Chrome */
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+        }
+
+        input[type=range]:focus {
+            outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+        }
+
+        input[type=range]::-ms-track {
+            width: 100%;
+            cursor: pointer;
+
+            /* Hides the slider so custom styles can be added */
+            background: transparent; 
+            border-color: transparent;
+            color: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: 1px solid #000000;
+            height: 36px;
+            width: 16px;
+            border-radius: 3px;
+            background: #ffffff;
+            cursor: pointer;
+            margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+        }
+
+            /* All the same stuff for Firefox */
+        input[type=range]::-moz-range-thumb {
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            border: 1px solid #000000;
+            height: 36px;
+            width: 16px;
+            border-radius: 3px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+            /* All the same stuff for IE */
+        input[type=range]::-ms-thumb {
+            box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+            border: 1px solid #000000;
+            height: 36px;
+            width: 16px;
+            border-radius: 3px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Super-Duper-Awesome Light Control</h1>
+    </div>
+    <br />
+    <form id="solid_rgb" action="/solid_rgb" method="get">
+        <h2 class="text-center">Solid Color</h2>
+        <div class="row">
+            <div class="col-4 text-center bg-danger">
+                <input class="rgb-slider" type="range" min="0" max="255" name="r">
+            </div>
+            <div class="col-4 text-center bg-success">
+                <input class="rgb-slider" type="range" min="0" max="255" name="g">
+            </div>
+            <div class="col-4 text-center bg-info">
+                <input class="rgb-slider" type="range" min="0" max="255" name="b">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <input class="btn btn-lg btn-block btn-primary" style="height: 5em;" type="submit" value="Set">
+            </div>
+        </div>
+    </form>
+    <br />
+    <br />
+    <form id="strobe" action="/strobe" method="get">
+        <h2 class="text-center">Strobe</h2>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <input value="30" type="number" min="10" max="255" style="height: 5em;" name="rate">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <input class="btn btn-lg btn-block btn-primary" style="height: 5em;" type="submit" value="Set">
+            </div>
+        </div>
+    </form>
+    <br />
+    <br />
+    <form id="police" action="/police" method="get" class="police">
+        <h2 class="text-center">Police</h2>
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <input class="btn btn-lg btn-block btn-primary" style="height: 5em;" type="submit" value="Set">
+            </div>
+        </div>
+    </form>
+</body>
